@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>** post test **</h2>
+<form action="PostData" method="post"><!-- action 논리적인 이름 form태그는 보통 post방식을 쓴다-->
+이름 : <input type="text" name="name" value="한국인"><br/>
+주소1 : <input type="text" name="addr" value="서울시"><br/>
+주소2 : <input type="text" name="addr" value="강남구 역삼동"><br/> <!-- 네임이 같으면 배열로 잡힌다 -->
+
+<!-- check box -->
+<br/>현재 가능한 언어는?<br/> <!-- 체크박스는 무조건 배열로 넘어온다 -->
+<input type="checkbox" name="lan" value="C language">C언어<br/> 
+<input type="checkbox" name="lan" value="JAVA">자바<br/>
+<input type="checkbox" name="lan" value="Python">파이썬<br/>
+
+<!-- radio -->
+<br/>현재 사용중인 OS는 ?<br/>
+<input type="radio" name="os" value="윈도우" checked="checked">윈도우&nbsp;&nbsp;
+<input type="radio" name="os" value="리눅스">리눅스&nbsp;&nbsp;
+<input type="radio" name="os" value="맥OS">맥OS<br>
+
+
+<!-- select -->
+<br/>현재 이용 중인 교통수단은?
+<select name="tr"> <!--  multiple="multiple"은 배열  -->
+	<option>버스</option>
+	<option>전철</option>
+	<option>도보</option>
+</select>
+<br/>
+
+<input type="hidden" name="edu" value="한국교육">
+<br/>
+<!-- 다량의 자료 처리 -->
+<p/>수다떨기<br/>
+<textarea rows="5" cols="50" name="suda"></textarea> <!-- <textarea></...> 가운데를 붙여쓴다 공백이 들어갈수있다-->
+<br/>
+<input type="submit" value="자료 전송">
+</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

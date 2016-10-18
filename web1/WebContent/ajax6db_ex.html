@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function(){
+	document.getElementById("all").onclick = function(){
+		startXhr();
+	}
+	document.getElementById("bu").onclick = function(){
+		startXhr(document.getElementById("bu").getAttribute("value"));
+	}
+	document.getElementById("gua").onclick = function(){
+		startXhr(document.getElementById("gua").getAttribute("value"));
+	}
+	document.getElementById("dae").onclick = function(){
+		startXhr(document.getElementById("dae").getAttribute("value"));
+	}
+	document.getElementById("sa").onclick = function(){
+		startXhr(document.getElementById("sa").getAttribute("value"));
+	}
+	
+}
+
+function createXhr(){
+	if(window.ActiveXObject){
+		xhr = new ActiveXObject("Msxml2.XMLHTTP"); //IE8 이하
+	}else if(window.XMLHttpRequest){
+		xhr = new XMLHttpRequest();
+	}
+}
+
+function startXhr(arg){
+	createXhr();
+	xhr.open("get", "jspsawon_json.jsp", true);
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState == 4){
+			if(xhr.status == 200){
+				process(arg);				
+			}else{
+				alert("요청 실패 : " + xhr.status);
+			}
+		}
+	}
+	xhr.send("");
+}
+
+function process(arg){
+	var data = xhr.responseText;
+	var parseData = JSON.parse(data);
+	var str = "<table border='1'><tr><th>사번</th><th>이름</th><th>직급</th><th>성별</th></tr>";
+	for (var i = 0; i < parseData.sawons.length; i++) {
+		if(arg != undefined){
+			if(parseData.sawons[i].jik == arg){
+			str += "<tr>";
+			str += "<td>" + parseData.sawons[i].no + "</td>";
+			str += "<td>"+"<a href='#' onclick=buser(" + parseData.sawons[i].buser_no + ")>" + parseData.sawons[i].name + "</td>";
+			str += "<td>" + parseData.sawons[i].jik + "</td>";
+			str += "<td>" + parseData.sawons[i].gen + "</td>";
+			str += "</tr>";
+			}
+		}else{
+			str += "<tr>";
+			str += "<td>" + parseData.sawons[i].no + "</td>";
+			str += "<td>"+"<a href='#' onclick=buser(" + parseData.sawons[i].buser_no + ")>" + parseData.sawons[i].name + "</td>";
+			str += "<td>" + parseData.sawons[i].jik + "</td>";
+			str += "<td>" + parseData.sawons[i].gen + "</td>";
+			str += "</tr>";
+		}
+	}
+	str += "</table>";
+	document.getElementById("disp").innerHTML = str;
+}
+
+function buser(arg){
+	var data = xhr.responseText;
+	var parseData = JSON.parse(data);
+	var buser_name = "";
+	var buser_num = "";
+	var count = 0;
+	for (var i = 0; i < parseData.sawons.length; i++) {
+			if(parseData.sawons[i].buser_num == arg){
+				buser_name = parseData.sawons[i].buser_name;
+				buser_num = parseData.sawons[i].buser_tel;
+				count++;
+			}
+	}
+	document.getElementById("dispBuser").innerHTML = "부서정보<br>부서명: " + buser_name + "&nbsp&nbsp 전화: "+ buser_num + "<br> 근무인원: " + count;
+}
+
+</script>
+</head>
+<body>
+<h3>직원자료 출력</h3>
+<input type="button" id="all" value="전체">
+<input type="button" id="bu" value="부장" >
+<input type="button" id="gua" value="과장">
+<input type="button" id="dae" value="대리">
+<input type="button" id="sa" value="사원">
+<div id="disp"></div><br>
+<div id="dispBuser"></div>
+</body>
+</html>

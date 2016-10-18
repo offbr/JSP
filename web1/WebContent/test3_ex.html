@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>기억나자</title>
+<script type="text/javascript">
+window.onload = function(){
+	document.getElementById("btn1").onclick = func1;
+	document.getElementById("btn2").onclick = func2;
+	txt1.focus();
+}
+
+function func1(){
+	var result = txt1.value + txt2.value;
+	
+	if(isNaN(result)){
+		result = txt1.value + txt2.value;
+	}else{
+		result = Number(txt1.value) + Number(txt2.value);
+	}
+	
+	var show2 = document.getElementById("show2");
+	var i = document.createElement("i");
+	var resultDOM = document.createTextNode(result);
+	i.appendChild(resultDOM);
+	
+	document.getElementById("show").innerHTML = result;
+	document.getElementById("show2").removeChild(show2.childNodes[0]);
+	document.getElementById("show2").appendChild(i);
+}
+
+function func2(){
+	document.getElementById("show").innerHTML = "결과(innerHTML)";
+	document.getElementById("show2").removeChild(show2.childNodes[0]);
+	document.getElementById("show2").innerHTML = "결과(DOM)";
+	txt1.value = null;
+	txt2.value = null;
+	txt1.focus();
+}
+</script>
+</head>
+<body>
+자료 1: <input type="text" id="txt1"><br>
+자료 2: <input type="text" id="txt2"><br> 
+<input type="button" value="확인" id="btn1">
+<input type="button" value="초기화" id="btn2">
+<div id="show">결과(innerHTML)</div>
+<div id="show2">결과(DOM)</div>
+</body>
+</html>

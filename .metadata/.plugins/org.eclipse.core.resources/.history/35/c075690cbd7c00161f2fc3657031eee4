@@ -1,0 +1,58 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!-- 메인 메뉴바 가운데 정렬 -->
+<style>
+.nav-tabs>li, .nav-pills>li {
+	float: none;
+	display: inline-block;
+}
+.nav-tabs, .nav-pills {
+	text-align: center;
+}
+body {
+	font-family: 'Montserrat', sans-serif;
+}
+a{
+ color: #454545;
+}
+</style>    
+    
+<!-- 상단 아이콘 -->
+<article>
+<div class="container-fluid">
+	<div class="pull-right">
+		<br>
+		<a href="http://localhost:8080/mono/index.jsp"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>&nbsp;
+		<a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>&nbsp;
+		<a href="../../cart/cart.jsp"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
+	</div>
+</div>
+</article>
+<!-- //상단 아이콘 -->
+
+<br><br>
+
+<!-- 메인이미지 -->
+<div class="container">
+	 <!-- 가운데 정렬 center-block 크기를 지정해줘야한다 -->
+	<a href="http://localhost:8080/mono/index.jsp"><img src="../../images/logo.png" class="img-responsive center-block" alt="Responsive image"></a>
+</div>
+<!-- //메인이미지 -->
+
+<br><br>
+
+<!-- 메인메뉴 -->
+<div class="container">
+  <ul class="nav nav-tabs" style="border-top: solid 1px; border-top-color: #dddddd;">
+    <li><a href="../../index.jsp">HOME</a></li>
+    <li><a href="../../shop/deck/deck.jsp">SHOP</a></li>
+    <li><a href="../../board/qna/qnaList.jsp">Q&A</a></li>
+    <li><a href="../../mypage/index/mypageindex.jsp">MYPAGE</a></li>
+  </ul>
+</div>
+<!-- //메인메뉴 -->
+
+
+
+
+

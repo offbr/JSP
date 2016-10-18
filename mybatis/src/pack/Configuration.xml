@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="pack/db.properties" /> <!-- 연결정보 -->
+	<environments default="pro">
+		<environment id="pro">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED"> <!-- 풀링처리 -->
+				<property name="driver" value="${driver}" /> <!-- db.properties와 맵핑 -->
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<mapper resource="pack/DataMapper.xml" /> <!-- 따로따로 분업 -->
+		<mapper resource="pack/DataMapper.xml" />
+	</mappers>
+</configuration>

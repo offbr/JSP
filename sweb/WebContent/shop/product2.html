@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function(){
+	document.getElementById("btnOk").onclick = function(){
+		frm.submit();
+	}
+}
+</script>
+</head>
+<body>
+<table>
+	<tr>
+		<td><img src="../images/2.jpg" width="90%"></td>
+		<td>
+		<pre>
+		<b>레고 스타워즈 R4-G0 드로이드 피규어 레고 스타워즈 젝-14의 스텔스 스타파이터 75018</b>
+		국내배송! 베스트 상품! 소량 기획상품!
+		15,900원  
+		</pre>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" style="text-align: center;">
+			<form action="../Cart" name="frm" method="post">
+				<input type="hidden" name="name" value="레고 스타워즈 R4-G0 드로이드 피규어">
+				<input type="hidden" name="price" value="15900">
+				<input type="button" id="btnOk" value="장바구니에 담기">
+				<input type="button" id="btnCancel" value="홈으로" onclick="history.back()">
+			</form>
+		</td>
+	</tr>
+</table>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

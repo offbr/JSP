@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>직원 자료</title>
+<script type="text/javascript">
+window.onload = function(){ 
+	document.getElementById("all").onclick = startXhr();
+	document.getElementById("all").onclick = all;
+	document.getElementById("man").onclick = man;
+	document.getElementById("woman").onclick = woman;
+}
+
+function startXhr(arg){ 
+	xhr = new XMLHttpRequest();
+	xhr.open("get", "jspsawon.jsp", true); //비동기 방식은 true
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState == 4){
+			if(xhr.status == 200){
+				process(arg);				
+			}else{
+				alert("요청 실패 : " + xhr.status);
+			}
+		}
+	}
+	xhr.send(null);
+}
+
+function process(arg){
+	var data = xhr.responseXML;
+	
+	var sawonNode = data.getElementsByTagName("sawon");
+	var sawon_noNode = data.getElementsByTagName("sawon_no");
+	var sawon_nameNode = data.getElementsByTagName("sawon_name");
+	var sawon_jikNode = data.getElementsByTagName("sawon_jik");
+	var sawon_ibsailNode = data.getElementsByTagName("sawon_ibsail");
+	var sawon_genNode = data.getElementsByTagName("sawon_gen");
+	var count = 0;
+	var str = "<table border='1'><tr><th>사번</th><th>이름</th><th>직급</th><th>입사년</th></tr>";
+	for (var i = 0; i < sawonNode.length; i++) {
+		if(sawon_genNode[i].firstChild.nodeValue != arg){
+		str += "<tr>";
+		str += "<td>" + sawon_noNode[i].firstChild.nodeValue + "</td>";
+		str += "<td>" + sawon_nameNode[i].firstChild.nodeValue + "</td>";
+		str += "<td>" + sawon_jikNode[i].firstChild.nodeValue + "</td>";
+		str += "<td>" + sawon_ibsailNode[i].firstChild.nodeValue.substr(0, 4) + "</td>";
+		str += "</tr>";
+		count++;	
+		}
+	}
+		document.getElementById("disp").innerHTML = str
+		document.getElementById("disp").innerHTML += "<br>인원수: " + count;
+		
+}
+
+function all(){
+	startXhr("null");	
+}
+
+function man(){
+	startXhr("여");
+}
+function woman(){
+	startXhr("남");
+}
+
+</script>
+</head>
+<body>
+직원 자료 출력<br><br>
+전체<input type="radio" name="ra" id="all" checked="true">
+남자<input type="radio" name="ra" id="man">
+여자<input type="radio" name="ra" id="woman">
+<div id="disp"></div>
+</body>
+</html>

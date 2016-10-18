@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/ajax8_ex.js" id="aa">
+</script>
+</head>
+<body>
+<h3>고객 출력</h3>
+<table> 
+	<tr>
+		<th id="전체" onmouseover="goFunc(this)" onmouseout="clsFunc()">&nbsp;&nbsp;&nbsp;전체&nbsp;&nbsp;&nbsp;</th>
+		<th id="남자" onmouseover="goFunc(this)" onmouseout="clsFunc()">&nbsp;&nbsp;&nbsp;남자&nbsp;&nbsp;&nbsp;</th>
+		<th id="여자" onmouseover="goFunc(this)" onmouseout="clsFunc()">&nbsp;&nbsp;&nbsp;여자&nbsp;&nbsp;&nbsp;</th>
+		<th><input type="radio" name="btn" id= "btnXML" checked="checked" onchange="choice(true)"><label for="btnXML">XML&nbsp;</label></th>
+		<th><input type="radio" name="btn" id= "btnJSON" onchange="choice(false)"><label for="btnJSON">JSON&nbsp;</label></th>
+	</tr>
+</table>
+<hr/>
+<div style=float:left; id="dispXML"></div>
+<div style=float:right; id="dispJSON"></div>
+</body>
+</html>

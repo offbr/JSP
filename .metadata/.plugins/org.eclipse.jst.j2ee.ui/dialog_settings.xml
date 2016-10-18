@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="true" key="J2EE_EXPORT_OVERWRITE"/>
+	<item value="true" key="J2EE_EXPORT_SOURCE"/>
+	<list key="J2EE_IMPORT_null">
+		<item value="/Volumes/SP UFD U3/empty/mvc/mvc_final_mybatis_ex.war"/>
+		<item value="/Volumes/SP UFD U3/empty/mvc/mvc_final_mybatis2.war"/>
+		<item value="/Volumes/SP UFD U3/empty/mvc/mvc_final_mybatis.war"/>
+		<item value="/Volumes/SP UFD U3/empty/mvc/mvc_final.war"/>
+		<item value="/Volumes/SP UFD U3/empty/mvc/mvc5mybatis_ex.war"/>
+		<item value="/Volumes/SP UFD U3/empty/mvc/mvc5mybatis.war"/>
+	</list>
+	<list key="MRU_RUNTIME_STORE">
+		<item value="Apache Tomcat v8.0"/>
+	</list>
+	<list key="J2EE_EXPORT_JST_WEB">
+		<item value="/Volumes/SP UFD U3/happylego.war"/>
+		<item value="/Users/All/Documents/happylego.war"/>
+	</list>
+</section>

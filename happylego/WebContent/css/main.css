@@ -1,0 +1,97 @@
+@CHARSET "UTF-8";
+/* main */
+#main_con{position:relative;z-index:5;height:555px}
+#main_con .txt_wrap{position:relative;z-index:3}
+#main_con .txt_wrap > h1{padding-top:50px}
+#main_con .txt_wrap > p{padding:30px 10px 0 10px}
+#main_con .txt_wrap .main_list{padding-top:20px}
+#main_con .txt_wrap .main_list li{display:inline-block;zoom:1;*display:inline;width:96px;height:96px;margin:3px;-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%;-webkit-transition: background-color 0.5s ease;-moz-transition: background-color 0.5s ease;-o-transition: background-color 0.5s ease;transition: background-color 0.5s ease}
+#main_con .txt_wrap .main_list li a{display:block;font-size:12px;color:#fff;font-weight:400;padding-top:41px;background-repeat:no-repeat;background-position:left top;-webkit-transition: color 0.5s ease;-moz-transition: color 0.5s ease;-o-transition: color 0.5s ease;transition: color 0.5s ease}
+
+#main_con .txt_wrap .main_list li a{
+	 -webkit-background-size: 96px auto;
+	  -moz-background-size: 96px auto;
+	  -o-background-size: 96px auto;
+	  background-size: 96px auto;
+}
+
+#main_con .txt_wrap .main_list li.list01{background-color:rgba(180,170,110,0.9)}
+#main_con .txt_wrap .main_list li.list02{background-color:rgba(200,170,140,0.9)}
+#main_con .txt_wrap .main_list li.list03{background-color:rgba(190,125,90,0.9)}
+#main_con .txt_wrap .main_list li.list04{background-color:rgba(185,140,140,0.9)}
+#main_con .txt_wrap .main_list li.list05{background-color:rgba(180,140,70,0.9)}
+#main_con .txt_wrap .main_list li.list06{background-color:rgba(164,154,69,0.9)}
+#main_con .txt_wrap .main_list li.list01 a{background-image:url(../images/main_list01.png)}
+#main_con .txt_wrap .main_list li.list02 a{background-image:url(../images/main_list02.png)}
+#main_con .txt_wrap .main_list li.list03 a{background-image:url(../images/main_list03.png)}
+#main_con .txt_wrap .main_list li.list04 a{background-image:url(../images/main_list04.png)}
+#main_con .txt_wrap .main_list li.list05 a{background-image:url(../images/main_list05.png)}
+#main_con .txt_wrap .main_list li.list06 a{background-image:url(../../images/content/main_list_icon06.png)}
+/*
+#main_con .txt_wrap .main_list li:hover{background-color:#fff}
+#main_con .txt_wrap .main_list li:hover a{background-position:right top}
+#main_con .txt_wrap .main_list li.list01:hover a{color:#b9b318}
+#main_con .txt_wrap .main_list li.list02:hover a{color:#f98f06}
+#main_con .txt_wrap .main_list li.list03:hover a{color:#e75208}
+*/
+
+#av{position:absolute;top:0;left:0;width:100%;height:100%;max-width:none}
+#main_con .av_wrap{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;z-index:1;
+	background:url(../images/av_bg.jpg) center top no-repeat;
+	 -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+}
+/*
+#main_con .av_wrap{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;overflow:hidden;
+	background:url(../../images/content/av_bg_m.jpg) center top no-repeat;
+	 -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+}
+
+#av{position:absolute;top:0;left:50%;width:800px;margin-left:-400px;max-width:none}
+*/
+
+
+#main_con .av_wrap .dot{position:absolute;top:0;left:0;width:100%;height:100%;z-index:3;background:url(../images/av_dot.png) repeat}
+
+
+
+@media screen and (min-width:320px){
+
+}
+
+@media screen and (min-width:414px){
+
+}
+
+@media screen and (min-width:640px){
+
+}
+
+@media screen and (min-width:768px){
+	/*#av{position:absolute;top:0;left:50%;width:1024px;margin-left:-512px;max-width:none}*/
+}
+
+@media screen and (min-width:1024px){
+
+	/* main */
+	#main_con{height:900px;padding-bottom:0}
+	#main_con .txt_wrap > h1{padding-top:100px}
+	#main_con .txt_wrap > p{padding:60px 10px 0 10px}
+	#main_con .txt_wrap .main_list{padding-top:110px}
+	#main_con .txt_wrap .main_list li{width:152px;height:152px;margin:0 15px;border}
+	#main_con .txt_wrap .main_list li a{font-size:16px;padding-top:62px;
+		-webkit-background-size:inherit;
+	  -moz-background-size:inherit;
+	  -o-background-size:inherit;
+	  background-size:inherit;
+	}
+	/*
+	#main_con .av_wrap{background:url(../../images/content/av_bg.jpg) center top no-repeat;}
+	#av{position:absolute;top:0;left:50%;width:1600px;margin-left:-800px;max-width:none}*/
+
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	window.onload = function(){
+		document.getElementById("btnOk").onclick = function(){
+			frm.submit();
+		}
+		document.getElementById("btnCancel").onclick = function(){
+			alert("리셋");
+		}
+	}
+</script>
+</head>
+<body>
+<h2>학생관리</h2>
+<form action="StudentRank" name="frm" method="post">
+	<label>번호 : </label><input type="text" name="no"><br/>
+	<label>이름 : </label><input type="text" name="name"><br/>
+	<label>국어 : </label><input type="text" name="kor" ><br/>
+	<label>영어 : </label><input type="text" name="eng" ><br/>
+	<input type="button" id="btnOk" value="등록">
+	<input type="button" id="btnCancel" value="리셋"> 
+</form>
+<table>
+	<tr style="color: lime; background-color: blue"></tr>
+	</table>
+</body>
+</html>

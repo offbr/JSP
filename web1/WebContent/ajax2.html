@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function(){
+	document.getElementById("btn").onclick = startxhr;	
+}
+
+function createxhr(){
+	if(window.ActiveXObject){
+		xhr = new ActiveXObject("Msxml2.XMLHTTP"); //IE8 이하
+	}else if(window.XMLHttpRequest){
+		xhr = new XMLHttpRequest();
+	}
+}
+
+function startxhr(){
+	createxhr();
+	xhr.open("get", "kma.xml", true);
+	
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState == 4){
+			if(xhr.status == 200){
+				process();
+			}else{
+				alert("요청실패: " +  xhr.status);
+			}
+		}
+	}
+	xhr.send(null);
+}
+
+function process(){
+	var data = xhr.responseXML;
+	var weatherNode = data.getElementsByTagName("weather");
+	var localNode = data.getElementsByTagName("local");
+
+	document.getElementById("disp").innerHTML = 
+		weatherNode[0].getAttribute("year")+"년 "+ weatherNode[0].getAttribute("month")+"월 "+ 
+		weatherNode[0].getAttribute("day")+"일 "+ weatherNode[0].getAttribute("hour")+"시 현재";
+	
+	var str = "<table border='1'><tr><td>지역</td><td>온도</td></tr>";
+	for (var i = 0; i < localNode.length; i++) {
+		str += "<tr><td>";
+		str += localNode[i].childNodes[0].nodeValue;
+		str += "</td><td>";
+		str += localNode[i].getAttribute("ta");
+		str += "</td></tr>";
+	}
+	document.getElementById("disp").innerHTML += str + "</table>";
+}
+
+</script>
+</head>
+<body>
+<input type="button" value="Go" id="btn"/>
+<div id="disp"></div>
+</body>
+</html>

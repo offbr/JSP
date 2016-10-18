@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>suggest 마지막</title>
+<script type="text/javascript" src="js/ajax10_ex.js">
+
+</script>
+<script type="text/javascript">
+function aa(){
+	alert("11");
+}
+</script>
+
+</head>
+<body>
+<form name="frm">
+<h3>HB 직원 관리 고객 목록</h3>
+입사년: <input type="text" name="keyword" id="keyword" onkeydown="start()" size="5">
+직원명: <select name="combo" id="combo" onchange="golist(this)">
+			<option value="1" onchange="" selected>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+		</select>
+</form>
+<hr/>
+<div id="suggest"><div id="suggestList" style="display:; position: absolute; left: 70px; top: 100px;"></div></div>
+<div id="disp"></div>
+</body>
+</html>

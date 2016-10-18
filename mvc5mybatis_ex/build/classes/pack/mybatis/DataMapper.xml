@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pro">
+	<select id="selectSawonAll" parameterType="map" resultType="com.company.model.SawonDto">
+		select sawon_no, sawon_name, buser_name, sawon_jik from sawon 
+		inner join buser on buser_num = buser_no order by sawon_no ${sort}
+	</select>
+	
+	<select id="selectGogekAll" parameterType="map" resultType="com.company.model.GogekDto">
+		select gogek_no, gogek_name, gogek_tel, gogek_jumin from gogek order by gogek_no ${sort}
+	</select>
+</mapper>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/def" xmlns:tns="http://www.example.org/def" elementFormDefault="qualified">
+	<element name="jikwons">
+		<complexType>
+			<sequence>
+				<element name="jikwon" minOccurs="1" maxOccurs="unbounded"> <!-- minOccurs 최소 하나 maxOccurs 최대 무한대-->
+					<complexType>
+						<sequence>
+							<element name="irum" type="string" /> <!--string, boolean, decimal(int, integer, byte, short, long), int, float, duble, date, time 등등-->
+							<element name="gender" type="string" />
+							<element name="pay" type="int" />
+						</sequence>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

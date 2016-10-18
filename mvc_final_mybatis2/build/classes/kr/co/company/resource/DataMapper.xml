@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pro">
+	<select id="getBuserList" resultType="kr.co.company.model.BuserDto">
+		select buser_no, buser_name from buser
+	</select>
+	
+	<select id="getSawonList" parameterType="String" resultType="kr.co.company.model.SawonDto">
+		select sawon_name, gogek_no, gogek_name, gogek_tel from sawon 
+		left join gogek on sawon_no = gogek_damsano where buser_num = #{buser_no}
+		order by sawon_no asc
+	</select>
+	
+</mapper>

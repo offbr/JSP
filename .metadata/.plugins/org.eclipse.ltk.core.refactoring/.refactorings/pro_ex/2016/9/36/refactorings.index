@@ -1,0 +1,10 @@
+1472699191321	Move 'notice' to 'board'
+1472699209220	Rename resource 'board'
+1472699229261	Rename resource 'boardlist.jsp'
+1472699234429	Move 'qnaList.jsp' to 'qna'
+1472699359338	Rename type 'BoardBean'
+1472699426629	Rename type 'BoardMgr'
+1472699437184	Rename type 'BoardDto'
+1472699491623	Rename package 'board'
+1472702575269	Copy folder
+1472702645322	Copy compilation units

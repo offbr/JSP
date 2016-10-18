@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="mono/mybatis/db.properties" /> <!-- 연결정보 -->
+	<environments default="mono">
+		<environment id="mono">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED"> <!-- 풀링처리 -->
+				<property name="driver" value="${driver}" /> <!-- db.properties와 맵핑 -->
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+</configuration>

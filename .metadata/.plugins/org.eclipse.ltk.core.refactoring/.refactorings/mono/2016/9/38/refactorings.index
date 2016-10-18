@@ -1,0 +1,40 @@
+1473674900930	Move 'images' to 'WebContent'
+1473732855697	Rename resource 'headerjsp.jsp'
+1473757669390	Rename resource 'join.jsp'
+1473758615665	Rename package 'member'
+1473758838093	Copy compilation unit
+1473763842279	Delete element
+1473766066985	Rename resource 'idcheck.jsp'
+1473841088702	Move 5 resources to 'member'
+1473842125325	Copy file
+1473842737833	Rename resource 'member'
+1473920459867	Copy compilation unit
+1473941108542	Rename resource 'qnalist.jsp'
+1473941125893	Rename resource 'qnalist.jsp'
+1473941135052	Rename resource 'qnalist.jsp'
+1473941607499	Rename resource 'qnaList.jsp'
+1473941640148	Rename resource 'qnalist.jsp'
+1473941678119	Rename resource 'qnalist.jsp'
+1473941738210	Move 'qnaList.jsp' to 'WebContent'
+1473941741104	Move 'qnaList.jsp' to 'qna'
+1473941761062	Move 'qnaList.jsp' to 'js'
+1473941764996	Move 'qnaList.jsp' to 'qna'
+1474014728230	Delete element
+1474014923412	Move 'Deck' to 'shop'
+1474014936616	Rename resource 'Deck'
+1474015734983	Rename resource 'shoplink.jsp'
+1474015829602	Move 'shopLink.jsp' to 'shop'
+1474015832502	Move 'shopLink.jsp' to 'mypage'
+1474015835688	Move 'shopLink.jsp' to 'product'
+1474016152175	Move 'shopLink.jsp' to 'tee'
+1474016155835	Move 'shopLink.jsp' to 'product'
+1474021204716	Move 'shopLink.jsp' to 'tee'
+1474021209243	Move 'shopLink.jsp' to 'product'
+1474087212265	Move 'cart' to 'shop'
+1474089061944	Copy compilation unit
+1474089990255	Delete element
+1474089995184	Copy compilation unit
+1474090340856	Delete element
+1474090345992	Copy compilation unit
+1474098779237	Delete element
+1474098786960	Copy compilation unit

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function(){
+	document.getElementById("btnGet").onclick = getFunc;
+	document.getElementById("btnPost").onclick = postFunc;
+	frm.name.focus();
+}
+
+var xhr;
+function getFunc(){ //겟은 파일명뒤에 붙는다.
+	//alert("get");
+	var irum = frm.name.value;
+	var nai = frm.age.value;
+	//alert(irum + " " + nai);
+	fName = "ajax7.jsp?name=" + irum + "&age=" + nai;
+	
+	xhr = new XMLHttpRequest();
+	xhr.open("get", fName, true);
+	xhr.onreadystatechange = function(){ //콜백
+		if(xhr.readyState == 4){
+			if(xhr.status == 200){
+				process1();
+			}else{
+				alert("get 요청 실패: " + xhr.status);
+			}
+		}
+	}
+	xhr.send("");
+}
+
+function postFunc(){ //post는 바디영역이 따로 있다 거기에 담겨가기때문에 url에 보이지 않는다 //넘어가는 데이터의 양이 상관없다 get방식은 제한이 있다 // 보안장점(게시판등);
+	//alert("post");
+	var irum = frm.name.value;
+	var nai = frm.age.value;
+	
+	xhr = new XMLHttpRequest();
+	xhr.open("post", "ajax7.jsp", true);
+	xhr.onreadystatechange = function(){ //콜백
+		if(xhr.readyState == 4){
+			if(xhr.status == 200){
+				process2();
+			}else{
+				alert("post 요청 실패: " + xhr.status);
+			}
+		}
+	}
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	xhr.send("name=" + irum + "&age=" + nai); //get도 이렇게 담겨서 가지만 url 파일명뒤에 붙어서 간다
+}
+
+function process1(){
+	var data = xhr.responseText;
+	//alert("get 요청 처리: " + data);
+	document.getElementById("show").innerText = "get 요청 처리 결과:" + data;
+}
+
+function process2(){
+	var data = xhr.responseText;
+	//alert("post 요청 처리: " + data);
+	document.getElementById("show").innerText = "post 요청 처리 결과:" + data;
+}
+
+</script>
+</head>
+<body>
+<h3>get / post test</h3>
+<form name="frm">
+이름 : <input type="text" name="name"/><br>
+나이 : <input type="text" name="age"/><br>
+<input type="button" value="get" id="btnGet"/>
+<input type="button" value="post" id="btnPost"/>
+</form>
+<hr/>
+<div id="show"></div>
+</body>
+</html>

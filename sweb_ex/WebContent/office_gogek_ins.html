@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="default.css" rel="stylesheet" title="Default Style">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#btnInsert").on("click", function(){
+		//alert("추가");
+		if($("#f_irum").val() === ""){
+			 $("#disp").text("가족명을 입력하세요");
+			return;
+		}
+		if($("#f_irum").val() === ""){
+			 $("#disp").text("가족명을 입력하세요");
+			return;
+		}
+		if($("#f_tel").val() === ""){
+			$("#disp").text("전화번호를 입력하세요");
+			return;
+		}
+		if(isNaN(parseInt($("#f_tel").val()))){
+			$("#disp").text("전화번호는 숫자만 입력하세요");
+			return;
+		}
+		if($("#f_gogek_no").val() === ""){
+			$("#disp").text("가족번호를 입력하세요");
+			return;
+		}
+		if(isNaN(parseInt($("#f_gogek_no").val()))){
+			$("#disp").text("가족번호는 숫자만 입력하세요");
+			return;
+		}
+		
+		$("#frm").submit();
+	});
+});
+
+</script>
+</head>
+<body>
+<div id="disp" style="margin-left: 50px; color: red;" ></div>
+<form action="office_gogek_ins.jsp" method="post" id="frm">
+가 족 명 : <input type="text" id="f_irum" name="f_irum"/><br/>
+전&nbsp;&nbsp;&nbsp;&nbsp; 화 : <input type="text" id="f_tel" name="f_tel"/><br/>
+가족번호 : <input type="text" id="f_gogek_no" name="f_gogek_no"/><p/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="button" id="btnInsert" name="btnInsert" value="등록">
+<input type="reset" value="리셋"><br/>
+</form>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="happylego">
+	<!-- 총 페이지 -->
+	<select id="pageSu" resultType="int"> 
+		select count(*) from board
+	</select>
+	 <!-- 게시글 리스트 -->
+	<select id="qnaAll" parameterType="int" resultType="communtity.business.QnaBean">
+		select * from board order by b_no desc limit #{page}, 10
+	</select>
+	 <!-- 게시글 검색-->
+	<select id="qnaSearch" parameterType="hashmap" resultType="communtity.business.QnaBean">
+		select * from board where ${stype} like '%' #{sword} '%' order by b_no desc
+	</select>
+	<!-- 게시글 비밀번호 확인 -->
+	<select id="qnaCheckPass" parameterType="hashmap" resultType="int"> 
+		select count(*) from board where b_no=#{b_no} and b_pass=#{b_pass}
+	</select>
+	 <!-- 조회수 -->
+	<select id="qnaViewRead" parameterType="String" resultType="int">
+		update board set b_read=b_read + 1 where b_no=#{b_no}
+	</select>
+	<!-- 게시글 읽을 때 -->
+	<select id="qnaView" parameterType="hashmap" resultType="communtity.business.QnaBean"> 
+		select * from board where b_no=#{b_no} and b_pass=#{b_pass}
+	</select>
+	<!-- 새글 등록시 번호값 -->	
+	<select id="max_b_no" resultType="int">
+		select max(b_no) from board
+	</select>
+	<!-- 새글 -->
+	<insert id="qnaInsert" parameterType="communtity.business.QnaBean"> 
+		insert into board values
+		(#{b_no},#{b_id},#{b_pass},#{b_mail},#{b_phone},#{b_title},#{b_content},now(),0,'0')
+	</insert>
+	<!-- 글 수정 -->
+	<update id="qnaUpdate" parameterType="communtity.business.QnaBean"> 
+		update board set 
+		b_id=#{b_id}, b_pass=#{b_pass}, b_mail=#{b_mail}, b_phone=#{b_phone}, 
+		b_title=#{b_title}, b_content=#{b_content}, b_date=now(), b_read=${b_read}, b_state=${b_state} 
+		where b_no=#{b_no}
+	</update>
+	<!-- 글 삭제 -->
+	<delete id="qnaDelete" parameterType="String">
+		delete from board where b_no=#{b_no}
+	</delete>
+	
+	<!-- 관리자가 답변달았을 때 state변경 -->
+	<update id="qnaUpstate" parameterType="hashmap"> 
+		update board set b_state = 1 where b_no=#{b_no}
+	</update>
+	<!-- 관리자 답변 등록 -->
+	<insert id="qnaM_Write" parameterType="hashmap"> 
+		insert into boardmanager values
+		(#{m_no},#{m_id},#{m_title},#{m_content},now())
+	</insert>
+	<!-- 게시글에서 관리자 답변보기 -->
+	<select id="qnaM_View" parameterType="String" resultType="communtity.business.QnaMBean"> 
+		select * from boardmanager where m_no=#{b_no}
+	</select>
+	<!--  관리자 게시글에 답변 수정 -->
+	<update id="qnaM_Update" parameterType="communtity.business.QnaBean"> 
+		update boardmanager set 
+		m_title=#{m_title}, m_content=#{m_content}
+		where m_no=#{m_no}
+	</update>
+	
+	<!-- 관리자 답변글 삭제 -->
+	<delete id="qnaM_Delete" parameterType="String">
+		delete from boardmanager where m_no=#{b_no}
+	</delete>
+	
+
+	<!--              Product query                  -->
+	<select id="selectDataAll" resultType="service.business.ProductDto">
+		select * from product order by p_no asc
+	</select>
+
+	<select id="selectDataByType" parameterType="string" resultType="service.business.ProductDto">
+		select * from product where p_type like CONCAT('%',#{t_type},'%')
+	</select>
+
+	<select id="selectDataById" parameterType="string" resultType="service.business.ProductDto">
+		select * from product where p_no = #{p_no}
+	</select>
+
+	<select id="selectDataBySearch" parameterType="string" resultType="service.business.ProductDto">
+		select * from product where p_name like CONCAT('%',#{t_type},'%') or p_type
+		like CONCAT('%',#{t_type},'%')
+	</select>
+
+	<update id="updateDataStock" parameterType="service.business.ProductDto">
+		update product set p_stock=#{p_stock} where p_no=#{p_no}
+	</update>
+	
+	<!-- 상품삭제 -->
+   <delete id="deleteDataProduct" parameterType="String">
+      delete from product where p_no=#{p_no}
+   </delete>
+   
+	<!--________Order query____________ -->
+
+	<select id="selectDataByOrder" parameterType="string" resultType="service.business.OrderDto">
+		select * from orderlist where o_no = #{o_no}
+	</select>
+
+	<insert id="insertData" parameterType="service.business.OrderDto">
+		insert into orderlist(o_no,o_gid,o_pno,o_sdate,o_edate,o_state)
+		values(#{o_no},#{o_gid},#{o_pno},CURDATE(),date_add(CURDATE(),interval
+		14 day),#{o_state})
+	</insert>
+
+	<select id="selectDatalast" resultType="service.business.OrderDto">
+		select count(*) o_no from orderlist
+	</select>
+
+
+
+	<!-- //////////////// 관리자 페이지 //////////////////// -->
+	<!-- 총 회원 -->
+	<select id="guestAll" resultType="mypage.business.GuestBean"> 
+		select * from guest
+	</select>
+	<!-- 총 오더 -->
+	<select id="orderAll" resultType="service.business.OrderDto"> 
+		select o_no, o_gid, o_pno, p_name, p_size, p_price, o_sdate, o_edate, o_state from orderlist left outer join product on p_no = o_pno;
+	</select>
+
+	<update id="manager_ProductUpdate" parameterType="String">
+		update product set p_stock=p_stock+1 where p_no=#{o_pno}
+	</update>
+	
+	<!-- 반납확인 -->
+	<update id="manager_OrderUpdate" parameterType="String">
+		update orderlist set o_state='반납확인' where o_no=#{o_no}
+	</update>
+	
+	<!-- 회원 주문기록 삭제 -->
+	<delete id="manager_GuestOrderDelete" parameterType="String">
+		delete from orderlist where o_gid=#{o_gid}
+	</delete>
+	
+</mapper>
+
+
+
+
+
+
+
